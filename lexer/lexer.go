@@ -1,7 +1,7 @@
 package lexer
 
 import (
-	"github.com/SouleBA/monkeyintp/token"
+	"github.com/SouleBA/monkey/token"
 )
 
 //Lexer takes a string input and return a lexer of that input
