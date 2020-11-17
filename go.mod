@@ -1,3 +1,3 @@
-module github.com/SouleBA/monkey
+module github.com/souleb/monkey
 
-go 1.14
+go 1.15

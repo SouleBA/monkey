@@ -3,7 +3,7 @@ package ast
 import (
 	"testing"
 
-	"github.com/SouleBA/monkey/token"
+	"github.com/souleb/monkey/token"
 )
 
 func TestString(t *testing.T) {

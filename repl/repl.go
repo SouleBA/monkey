@@ -5,9 +5,10 @@ import (
 	"fmt"
 	"io"
 
-	"github.com/SouleBA/monkey/evaluator"
-	"github.com/SouleBA/monkey/lexer"
-	"github.com/SouleBA/monkey/parser"
+	"github.com/souleb/monkey/evaluator"
+	"github.com/souleb/monkey/lexer"
+	"github.com/souleb/monkey/object"
+	"github.com/souleb/monkey/parser"
 )
 
 const PROMPT = ">> "
@@ -28,6 +29,7 @@ const MONKEY_FACE = `            __,__
 //Start start a REPL process
 func Start(in io.Reader, out io.Writer) {
 	scanner := bufio.NewScanner(in)
+	env := object.NewEnvironment()
 
 	for {
 		fmt.Fprintf(out, PROMPT)
@@ -46,7 +48,7 @@ func Start(in io.Reader, out io.Writer) {
 			continue
 		}
 
-		evaluated := evaluator.Eval(program)
+		evaluated := evaluator.Eval(program, env)
 		if evaluated != nil {
 			io.WriteString(out, evaluated.Inspect())
 			io.WriteString(out, "\n")
